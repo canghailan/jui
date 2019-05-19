@@ -1,5 +1,7 @@
 package cc.whohow.jui.engine.java2d;
 
+import cc.whohow.jui.widgets.Widget;
+
 import java.awt.*;
 import java.awt.event.PaintEvent;
 import java.awt.event.WindowAdapter;
@@ -9,8 +11,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class App extends Frame {
+public class Java2dWindow extends Frame {
     private static ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+
     static {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
@@ -23,7 +26,7 @@ public class App extends Frame {
         }));
     }
 
-    public App() {
+    public Java2dWindow(Widget widget) {
         super(null, null);
         setSize(800, 600);
         setLocation(100, 100);
@@ -52,10 +55,5 @@ public class App extends Frame {
         g.setColor(Color.BLACK);
         g.drawString(new Date().toString(), 70, 70);
         super.paint(g);
-    }
-
-    public static void main(String[] args) {
-        App app = new App();
-        app.setVisible(true);
     }
 }

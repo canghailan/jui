@@ -1,4 +1,4 @@
 package cc.whohow.jui.rendering;
 
-public class RenderSliver extends RenderObject {
+public abstract class RenderSliver extends RenderObject {
 }
